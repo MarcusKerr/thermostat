@@ -65,4 +65,11 @@ describe ('Thermostat', function() {
       expect(thermostat.temperature).toEqual(20);
     });
   });
+
+  describe('energy usage', function(){
+    it('returns low usage when temperature is below 18', function(){
+      thermostat.temperature = 11;
+      expect(thermostat.energyUsage()).toEqual("low-usage");
+    });
+  });
 });
