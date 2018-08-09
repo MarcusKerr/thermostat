@@ -3,7 +3,6 @@ function Thermostat() {
   this.MINIMUMTEMPERATURE = 10;
   this.powerSavingMode = true;
   this.maxTemp = 25
-
 }
 
 Thermostat.prototype.up = function(){
@@ -22,5 +21,19 @@ Thermostat.prototype.down = function(){
 
 Thermostat.prototype.powerSavingModeOn = function(){
   this.powerSavingMode = true;
-  this.maxTemp = 25;
+  this.setMaxTemp();
 }
+
+Thermostat.prototype.powerSavingModeOff = function(){
+  this.powerSavingMode = false;
+  this.setMaxTemp();
+}
+
+Thermostat.prototype.setMaxTemp = function(){
+  if (this.powerSavingMode){
+    return this.maxTemp = 25
+  }
+  this.maxTemp = 32
+}
+
+
