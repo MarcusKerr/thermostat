@@ -16,7 +16,14 @@ describe ('Thermostat', function() {
       thermostat.up()
       expect(thermostat.temperatureTarget).toEqual(21);
     });
-    
+    it('cannot exceed max temperature', function() {
+      thermostat.powerSavingModeOn();
+      thermostat.temperatureTarget = 25;
+      expect(function (){
+        thermostat.up();
+      }).toThrowError("Power saving mode is on, cannot exceed 25degrees");
+      expect(thermostat.temperatureTarget).toEqual(25);
+    });
   });
 
   describe ('down', function() {
@@ -41,13 +48,14 @@ describe ('Thermostat', function() {
   });
 
   describe ('power saving mode', function() {
-    it ('when on, max temp is 25', function() {
+    it ('sets max temp to 25 when power saving mode is on', function() {
       thermostat.powerSavingModeOn();
-      thermostat.temperatureTarget = 25;
-      expect(function (){
-        thermostat.up();
-      }).toThrowError("Power saving mode is on, cannot exceed 25degrees");
-      expect(thermostat.temperatureTarget).toEqual(25);
+      expect(thermostat.maxTemp).toEqual(25);
+    });
+
+    it('sets max temp tp 32 when max temp is off', function() {
+      thermostat.powerSavingModeOff();
+      expect(thermostat.maxTemp).toEqual(32);
     });
   });
 });
