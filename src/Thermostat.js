@@ -36,4 +36,8 @@ Thermostat.prototype.setMaxTemp = function(){
   this.maxTemp = 32
 }
 
+Thermostat.prototype.resetTemp = function(){
+  this.temperature = 20;
+}
+
 
