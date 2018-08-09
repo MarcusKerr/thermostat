@@ -1,22 +1,22 @@
 function Thermostat() {
-  this.temperatureTarget = 20;
+  this.temperature = 20;
   this.MINIMUMTEMPERATURE = 10;
   this.powerSavingMode = true;
   this.maxTemp = 25
 }
 
 Thermostat.prototype.up = function(){
-  if(this.powerSavingMode === true && this.temperatureTarget === 25) {
+  if(this.powerSavingMode === true && this.temperature === 25) {
     throw new Error("Power saving mode is on, cannot exceed 25degrees");
   }
-  this.temperatureTarget += 1;
+  this.temperature += 1;
 }
 
 Thermostat.prototype.down = function(){ 
-  if (this.temperatureTarget === this.MINIMUMTEMPERATURE) {
+  if (this.temperature === this.MINIMUMTEMPERATURE) {
     throw new Error("Cannot go below minimum temperature");
   }
-  this.temperatureTarget -= 1;
+  this.temperature -= 1;
 }
 
 Thermostat.prototype.powerSavingModeOn = function(){

@@ -8,36 +8,36 @@ describe ('Thermostat', function() {
   });
 
   it (' has a start value of 20 degress', function() {
-    expect(thermostat.temperatureTarget).toEqual(20);
+    expect(thermostat.temperature).toEqual(20);
   });
 
   describe ('up', function() {
     it ( 'increases the temperature target by 1 degree', function() {
       thermostat.up()
-      expect(thermostat.temperatureTarget).toEqual(21);
+      expect(thermostat.temperature).toEqual(21);
     });
     it('cannot exceed max temperature', function() {
       thermostat.powerSavingModeOn();
-      thermostat.temperatureTarget = 25;
+      thermostat.temperature = 25;
       expect(function (){
         thermostat.up();
       }).toThrowError("Power saving mode is on, cannot exceed 25degrees");
-      expect(thermostat.temperatureTarget).toEqual(25);
+      expect(thermostat.temperature).toEqual(25);
     });
   });
 
   describe ('down', function() {
     it ( 'decreases the temperature target by 1 degree', function() {
       thermostat.down()
-      expect(thermostat.temperatureTarget).toEqual(19);
+      expect(thermostat.temperature).toEqual(19);
     });
 
     it('cannot go below the minimum temperature', function(){
-      thermostat.temperatureTarget = 10;
+      thermostat.temperature = 10;
       expect(function (){
         thermostat.down();
       }).toThrowError("Cannot go below minimum temperature");
-      expect(thermostat.temperatureTarget).toEqual(10);
+      expect(thermostat.temperature).toEqual(10);
     });
   });
 
@@ -56,6 +56,13 @@ describe ('Thermostat', function() {
     it('sets max temp tp 32 when max temp is off', function() {
       thermostat.powerSavingModeOff();
       expect(thermostat.maxTemp).toEqual(32);
+    });
+  });
+
+  describe('reset', function() {
+    it('resets the temperature to 20degrees', function() {
+      thermostat.resetTemp();
+      expect(thermostat.temperatue).toEqual(20);
     });
   });
 });
