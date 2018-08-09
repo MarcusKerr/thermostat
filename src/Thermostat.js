@@ -31,9 +31,9 @@ Thermostat.prototype.powerSavingModeOff = function(){
 
 Thermostat.prototype.setMaxTemp = function(){
   if (this.powerSavingMode){
-    return this.maxTemp = 25
+    return this.maxTemp = 25;
   }
-  this.maxTemp = 32
+  this.maxTemp = 32;
 }
 
 Thermostat.prototype.resetTemp = function(){
@@ -47,4 +47,6 @@ Thermostat.prototype.energyUsage = function(){
   else if(this.temperature < 25){
     return "medium-usage";
   }
+  else
+    return "high-usage"
 }
