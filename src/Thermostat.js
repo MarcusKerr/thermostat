@@ -1,50 +1,66 @@
+'use strict';
+
 function Thermostat() {
-  this.temperature = 20;
-  this.MINIMUMTEMPERATURE = 10;
+  this.DEFAULT_TEMP = 20;
+  this.temperature = this.DEFAULT_TEMP;
+  this.MIN_TEMP = 10;
   this.powerSavingMode = true;
-  this.maxTemp = 25
+  this.MAX_TEMP_PSM_ON = 25;
+  this.MAX_TEMP_PSM_OFF = 32;
+  this.MEDIUM_ENERGY_USAGE_LIMIT =18;
+
+}
+
+Thermostat.prototype.getTemperature = function(){
+  return this.temperature;
 }
 
 Thermostat.prototype.up = function(){
-  if(this.powerSavingMode === true && this.temperature === 25) {
-    throw new Error("Power saving mode is on, cannot exceed 25degrees");
+  if(this.isMaxTemp()) {
+    return;
   }
   this.temperature += 1;
 }
 
 Thermostat.prototype.down = function(){ 
-  if (this.temperature === this.MINIMUMTEMPERATURE) {
-    throw new Error("Cannot go below minimum temperature");
+  if (this.isMinTemp()) {
+    return;
   }
   this.temperature -= 1;
 }
 
-Thermostat.prototype.powerSavingModeOn = function(){
-  this.powerSavingMode = true;
-  this.setMaxTemp();
+Thermostat.prototype.isMinTemp = function(){
+  return this.temperature === this.MIN_TEMP; 
 }
 
-Thermostat.prototype.powerSavingModeOff = function(){
-  this.powerSavingMode = false;
-  this.setMaxTemp();
-}
-
-Thermostat.prototype.setMaxTemp = function(){
-  if (this.powerSavingMode){
-    return this.maxTemp = 25;
+Thermostat.prototype.isMaxTemp = function(){
+  if (this.isPSMOn()){
+    return this.temperature === this.MAX_TEMP_PSM_ON;
   }
-  this.maxTemp = 32;
+  return this.temperature === this.MAX_TEMP_PSM_OFF;
+}
+
+Thermostat.prototype.isPSMOn = function(){
+  return this.powerSavingMode === true;
+}
+
+Thermostat.prototype.switchPSMOff = function(){
+  this.powerSavingMode = false;
+}
+
+Thermostat.prototype.switchPSMOn = function(){
+  this.powerSavingMode = true;
 }
 
 Thermostat.prototype.resetTemp = function(){
-  this.temperature = 20;
+  this.temperature = this.DEFAULT_TEMP;
 }
 
 Thermostat.prototype.energyUsage = function(){
-  if(this.temperature < 18){
+  if(this.temperature < this.MEDIUM_ENERGY_USAGE_LIMIT){
     return "low-usage";
   }
-  else if(this.temperature < 25){
+  else if(this.temperature <= this.MAX_TEMP_PSM_ON){
     return "medium-usage";
   }
   else
