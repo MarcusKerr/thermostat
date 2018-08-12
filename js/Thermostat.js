@@ -48,6 +48,9 @@ Thermostat.prototype.switchPSMOff = function(){
 }
 
 Thermostat.prototype.switchPSMOn = function(){
+  if (this.temperature > this.MAX_TEMP_PSM_ON){
+    this.temperature = this.MAX_TEMP_PSM_ON;
+  }
   this.powerSavingMode = true;
 }
 

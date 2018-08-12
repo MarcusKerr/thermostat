@@ -1,11 +1,16 @@
 html,
 body {
   height: 100%;
-  width: 100%
+  width: 100%;
 }
 
 .btn{
-  background-color: ;
+  background-color: #fff;
+}
+
+.ps,
+.reset{
+  border-color: black;
 }
 
 #thermostat-container{

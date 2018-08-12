@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.css">
     <title>Thermostat - By Marcus Kerr</title>
-    
   </head>
   <body>
     <div id="thermostat-container" class="container text-center">
       <div class="row">
         <div id="digital-display" class="col-md-6 offset-md-2">
-          <h1 id="temperature">60&#8451;</h1>
+          <h1 id="temperature"></h1>
+          <p id="t"></p>
         </div>
         <div id="sidebar" class="col-md-2">
           <div class="col-6 offset-3">
@@ -23,13 +23,14 @@
             </div>
           </div>
           <div class="col-12">
-            <button type="button" class="btn" id="power-saving">PSM: On</button>
+            <button type="button" class="btn ps" id="psm-on">PSM: On</button>
+            <button type="button" class="btn ps" id="psm-off">PSM: Off</button>
           </div>
           <div class="col-12">
-            <p id="energy-usage">low-usage</p>
+            <p id="energy-usage"></p>
           </div>
           <div class="col-12">
-            <button type="button" class="btn" id="reset-button">Reset</button>
+            <button type="button" class="btn reset" id="reset-button">Reset</button>
           </div>
         </div>
       </div>

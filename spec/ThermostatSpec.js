@@ -61,6 +61,15 @@ describe ('Thermostat', function() {
         }
         expect(thermostat.getTemperature()).toEqual(25);
       });
+
+      it('brings the temperature down to 25degrees', function(){
+        thermostat.switchPSMOff();
+        for (var i=0; i<12; i++){
+          thermostat.up();
+        }
+        thermostat.switchPSMOn();
+        expect(thermostat.getTemperature()).toEqual(25);
+      });
     });
 
     describe('power saving mode off', function() {
