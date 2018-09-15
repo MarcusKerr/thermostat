@@ -9,15 +9,21 @@ $( document ).ready(function(){
     $('#energy-usage').text(thermostat.energyUsage());
   }
 
-  setInterval(displayTemp,0);
-  setInterval(displayEnergyUsage,0);
+  var display = function(){
+    displayTemp();
+    displayEnergyUsage();
+  }
+
+  display();
 
   $('#up-button').click(function(){
     thermostat.up();
+    display();
   });
 
   $('#down-button').click(function(){
     thermostat.down();
+     display();
   });
 
   $('#psm-on').click(function(){

@@ -10,30 +10,21 @@
   </head>
   <body>
     <div id="thermostat-container" class="container text-center">
-      <div class="row">
-        <div id="digital-display" class="col-md-6 offset-md-2">
-          <h1 id="temperature"></h1>
-          <p id="t"></p>
-        </div>
-        <div id="sidebar" class="col-md-2">
-          <div class="col-6 offset-3">
-            <div class="row">
-              <button type="button" class="col-6 btn" id="up-button"><i class="fa fa-angle-up"></i></button>
-              <button type="button" class="col-6 btn" id="down-button"><i class="fa fa-angle-down"></i></button>
-            </div>
-          </div>
-          <div class="col-12">
-            <button type="button" class="btn ps" id="psm-on">PSM: On</button>
-            <button type="button" class="btn ps" id="psm-off">PSM: Off</button>
-          </div>
-          <div class="col-12">
-            <p id="energy-usage"></p>
-          </div>
-          <div class="col-12">
-            <button type="button" class="btn reset" id="reset-button">Reset</button>
-          </div>
-        </div>
+      <div id="temperature-display">
+        <h1 id="temperature"></h1>
       </div>
+      <div class="temp-buttons-container mb-3">
+          <button type="button" class="btn col-6 col-md-2" id="up-button"><i class="fa fa-angle-up"></i></button>
+          <button type="button" class="btn col-6 col-md-2" id="down-button"><i class="fa fa-angle-down"></i></button>
+      </div>
+      <div class = "psm-buttons-container mb-3">
+          <button type="button" class="btn col-md-2" id="psm-on">PSM: On</button>
+          <button type="button" class="btn col-md-2" id="psm-off">PSM: Off</button>
+      </div>
+
+      <p id="energy-usage"></p>
+
+      <button type="button" class="btn reset col-md-4" id="reset-button">Reset</button>
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
