@@ -14,16 +14,18 @@ $( document ).ready(function(){
     displayEnergyUsage();
   }
 
-  display();
+  setInterval(display,0);
+
+  $.get('http://api.openweathermap.org/data/2.5/weather?q=London&appid=a3d9eb01d4de82b9b8d0849ef604dbed&units=metric', function(data) {
+    $('#current-temperature').text(data.main.temp);
+  });
 
   $('#up-button').click(function(){
     thermostat.up();
-    display();
   });
 
   $('#down-button').click(function(){
     thermostat.down();
-     display();
   });
 
   $('#psm-on').click(function(){
@@ -37,4 +39,6 @@ $( document ).ready(function(){
   $('#reset-button').click(function(){
     thermostat.resetTemp();
   });
+
+
 });
