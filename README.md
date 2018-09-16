@@ -3,7 +3,7 @@
 ### Week 5 pairing assignment - Introduction to JavaScript
 ---
 
-![thermo](https://user-images.githubusercontent.com/15127871/45599028-8f204300-b9dc-11e8-8ac8-6cdf3ea57efe.png)
+<div style="text-align:center">![thermo](https://user-images.githubusercontent.com/15127871/45599028-8f204300-b9dc-11e8-8ac8-6cdf3ea57efe.png)</div>
 
 During this project, I was tasked with learning a new language in a short period of time in order and producing a product. I completed the first 4 user stories during pairing sessions and completed the remainder of the project alone.
 
@@ -19,7 +19,7 @@ During this project, I was tasked with learning a new language in a short period
 
 Clone this project to your machine.
 
-`git clone https://github.com/MarcusKerr/thermostat.git`
+`$ git clone https://github.com/MarcusKerr/thermostat.git`
 
 Once cloned, open `index.html` and you're ready to play!
 
@@ -54,7 +54,8 @@ The Reset button will reset the temperature to 20.
 
 To run the entire test suite open `SpecRunner.html`.
 
-<img width="1440" alt="specs" src="https://user-images.githubusercontent.com/15127871/45594809-9b82ac80-b998-11e8-8cfc-23a115de28d9.png">
+<img width="1436" alt="tests" src="https://user-images.githubusercontent.com/15127871/45599094-b0356380-b9dd-11e8-82ba-3e2c4aabe155.png">
+
 
 ## Specification
 
