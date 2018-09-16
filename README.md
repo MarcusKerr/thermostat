@@ -50,6 +50,12 @@ The Reset button will reset the temperature to 20.
 
 <img width="1440" alt="reset" src="https://user-images.githubusercontent.com/15127871/45594770-1bf4dd80-b998-11e8-8ab3-4819261c2f66.png">
 
+### Current temperature
+
+The current temperature is a result of a call to a weather API, showing the current temperature in London.
+
+![ct](https://user-images.githubusercontent.com/15127871/45599182-0a82f400-b9df-11e8-8a19-535230022aa6.png)
+
 ## Running tests
 
 To run the entire test suite open `SpecRunner.html`.
